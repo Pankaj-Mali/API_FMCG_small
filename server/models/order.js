@@ -4,8 +4,10 @@ const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
     product_name : {type:String , required:true},
-    customer_id : {type:Schema.Types.ObjectId, ref:"Customer", required:true},
+    user_id : {type:Schema.Types.ObjectId, ref:"User", required:true},
     product_id :{type:Schema.Types.ObjectId, ref:"Product", required:true},
+    deleveryAddress: {type:String , required:true},
+    status : {type:String , required:true , default: "placed"},
     quantyti:{type:Number}
 })
 
