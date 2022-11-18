@@ -4,6 +4,10 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const cors = require("cors");
 
+const google = require("./Routes/userGoogleLogin")
+const userLoginResister= require("./Routes/userEntry")
+const employeeLogin = require("./Routes/employeeLogin")
+
 const secrete = "pankaj@98+27*3"
 
 const app = express();
@@ -15,18 +19,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
+// if user login or register with google
+app.use("/api/user/google" , google);
 
+// if user login or register without google
+app.use("/api/landingPage/user" , userLoginResister);
 
-app.get("/", async (req, res) => {
-   try {
-
-      return res.status(200).send("this works")
-   } catch (e) {
-       if (e) return res.status(400).json({
-           message: e.message
-       })
-   }
-})
+// for employee login
+app.use("/api/landingPage/employee/" , employeeLogin);
 
 
 app.listen(8080, (e) => {
