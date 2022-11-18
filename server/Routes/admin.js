@@ -53,7 +53,7 @@ router.post("/registerNewEmployee", async (req, res) => {
 
 // only the admin can see list of all customers or users
 
-router.post("/userList", async (req, res) => {
+router.get("/userList", async (req, res) => {
 
     try {
 
@@ -94,7 +94,8 @@ router.post("/userList", async (req, res) => {
 });
 
 // search user by its user Id
-router.post("/user/:userId", async (req, res) => {
+
+router.get("/user/:userId", async (req, res) => {
 
     try {
 
@@ -135,7 +136,8 @@ router.post("/user/:userId", async (req, res) => {
 });
 
 // search user by its emailId
-router.post("/user/:email", async (req, res) => {
+
+router.get("/user/:email", async (req, res) => {
 
     try {
 
@@ -150,7 +152,7 @@ router.post("/user/:email", async (req, res) => {
 
             if (role === "admin") {
 
-                let data = await user.find({email:req.params.email})
+                let data = await user.find({ email: req.params.email })
 
                 return res.status(200).json({
                     response: data
@@ -177,7 +179,7 @@ router.post("/user/:email", async (req, res) => {
 
 // to see employee list
 
-router.post("/employeeLIst", async (req, res) => {
+router.get("/employeeLIst", async (req, res) => {
 
     try {
 
@@ -219,7 +221,7 @@ router.post("/employeeLIst", async (req, res) => {
 
 //to search employee by employeeId
 
-router.post("/employee/:employeeId", async (req, res) => {
+router.get("/employee/:employeeId", async (req, res) => {
 
     try {
 
@@ -234,7 +236,7 @@ router.post("/employee/:employeeId", async (req, res) => {
 
             if (role === "admin") {
 
-                let data = await employee.find({employeeId:req.params.employeeId});
+                let data = await employee.find({ employeeId: req.params.employeeId });
 
                 return res.status(200).json({
                     response: data
@@ -261,7 +263,7 @@ router.post("/employee/:employeeId", async (req, res) => {
 
 // remove employee 
 
-router.post("/employee/:employeeId", async (req, res) => {
+router.get("/employee/:employeeId", async (req, res) => {
 
     try {
 
@@ -276,7 +278,7 @@ router.post("/employee/:employeeId", async (req, res) => {
 
             if (role === "admin") {
 
-                let data = await employee.deleteOne({employeeId:req.params.employeeId});
+                let data = await employee.deleteOne({ employeeId: req.params.employeeId });
 
                 return res.status(200).json({
                     response: data

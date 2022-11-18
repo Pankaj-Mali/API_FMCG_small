@@ -11,7 +11,7 @@ const secrete = "pankaj@98+27*3";
 router.post("/login",async(req,res)=>{
   
  try{
-    
+
     const employeeID = req.body.employeeID;
     const password = req.body.password;
     const employeeData = await employee.findOne({employeeId:employeeID})
