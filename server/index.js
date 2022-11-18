@@ -8,7 +8,8 @@ const google = require("./Routes/userGoogleLogin")
 const userLoginResister= require("./Routes/userEntry")
 const employeeLogin = require("./Routes/employeeLogin")
 const employeeOperations = require("./Routes/employeeOperations")
-const adminOperations = require("./Routes/admin")
+const adminOperations = require("./Routes/admin");
+const userOperations = require("./Routes/userOperations")
 
 const secrete = "pankaj@98+27*3"
 
@@ -28,13 +29,17 @@ app.use("/api/user/google" , google);
 app.use("/api/landingPage/user" , userLoginResister);
 
 // for employee login
-app.use("/api/landingPage/employee/" , employeeLogin);
+app.use("/api/landingPage/employee" , employeeLogin);
 
 // operations done by employee
-app.use("/api/employee/" , employeeOperations);
+app.use("/api/employee" , employeeOperations);
 
 //for the operations done by admin only
 app.use("app/employee/admin" , adminOperations);
+
+// user operationas
+
+app.use("/api/home/user" , userOperations )
 
 
 
