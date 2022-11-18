@@ -21,7 +21,7 @@ router.post("/login",async(req,res)=>{
         if(input){
             const token =  jwt.sign({
                 exp: Math.floor(Date.now()/100)+(60*60*9) ,
-                data:userData._id
+                data:employeeData._id
             },secrete)
 
          res.status(200).json({

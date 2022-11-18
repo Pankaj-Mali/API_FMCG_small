@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const employee = require("../models/employee");
 const product = require("../models/product");
 const order = require("../models/order");
+
 const router = express.Router();
 const secrete = "pankaj@98+27*3";
 
@@ -89,7 +90,7 @@ router.post("/deleteProduct/:productId", async (req, res) => {
 // to see all orders placed by all users
 
 
-router.post("/allOrders", async (req, res) => {
+router.get("/allOrders", async (req, res) => {
 
     try {
         const token = req.headers.authorization
@@ -128,7 +129,7 @@ router.post("/allOrders", async (req, res) => {
 // see orders according to there status
 
 
-router.post("/orders/:satus", async (req, res) => {
+router.get("/orders/:satus", async (req, res) => {
 
     try {
         const token = req.headers.authorization
