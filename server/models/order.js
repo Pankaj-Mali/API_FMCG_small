@@ -8,8 +8,9 @@ const orderSchema = new Schema({
     product_id :{type:Schema.Types.ObjectId, ref:"Product", required:true},
     deleveryAddress: {type:String , required:true},
     status : {type:String , required:true , default: "placed"},
-    quantyti:{type:Number}
-})
+    quantyti:{type:Number},
+    price:{type:Number}
+});
 
 const order = mongoose.model("Order" , orderSchema);
 

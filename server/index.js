@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const cors = require("cors");
 
+// the routes
 const google = require("./Routes/userGoogleLogin")
 const userLoginResister= require("./Routes/userEntry")
 const employeeLogin = require("./Routes/employeeLogin")
@@ -35,10 +36,9 @@ app.use("/api/landingPage/employee" , employeeLogin);
 app.use("/api/employee" , employeeOperations);
 
 //for the operations done by admin only
-app.use("app/employee/admin" , adminOperations);
+app.use("api/employee/admin" , adminOperations);
 
 // user operationas
-
 app.use("/api/home/user" , userOperations )
 
 
