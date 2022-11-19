@@ -263,7 +263,7 @@ router.get("/employee/:employeeId", async (req, res) => {
 
 // remove employee 
 
-router.get("/employee/:employeeId", async (req, res) => {
+router.post("/employee/:employeeId", async (req, res) => {
 
     try {
 
